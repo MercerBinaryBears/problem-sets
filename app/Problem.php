@@ -17,4 +17,9 @@ class Problem extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    public function practiceProblemSets()
+    {
+        return $this->belongsToMany('App\PracticeProblemSet');
+    }
 }
