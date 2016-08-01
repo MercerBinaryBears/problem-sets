@@ -14,4 +14,9 @@ class CompetitionProblemSet extends Model
         $new_home = $value->move(storage_path() . '/uploads', 10000 * microtime(true) . '.pdf');
         $this->filename = $new_home->getRealPath();
     }
+
+    public function problems()
+    {
+        return $this->hasMany('App\Problem');
+    }
 }
