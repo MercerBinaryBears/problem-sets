@@ -24,3 +24,14 @@ Route::get('/problems/{id}/pdf', function($id) {
 
     return $problem->name;
 });
+
+Route::get('/problems/{id}', function($id) {
+    $problem = App\Problem::find($id);
+    if($problem === null) {
+        // TODO: Make this a 404
+        //throw new Exception('Not Found');
+        $problem = new App\Problem(['name' => 'Test']);
+    }
+
+    return view('problem', ['problem' => $problem]);
+});
