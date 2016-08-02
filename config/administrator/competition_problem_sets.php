@@ -12,6 +12,13 @@ return [
         ]
     ],
 
+    'filters' => [
+        'name' => [
+            'title' => 'Name',
+            'type' => 'text'
+        ]
+    ],
+
     'edit_fields' => [
         'name' => [
             'title' => 'Name',
