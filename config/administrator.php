@@ -66,7 +66,8 @@ return array(
 	 *	)
 	 */
     'menu' => array(
-        'competition_problem_sets'
+        'competition_problem_sets',
+        'problems',
     ),
 
 	/**
