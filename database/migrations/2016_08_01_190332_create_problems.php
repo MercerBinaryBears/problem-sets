@@ -15,6 +15,10 @@ class CreateProblems extends Migration
         Schema::create('problems', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->longText('sample_input');
+            $table->longText('sample_output');
+            $table->longText('judge_input');
+            $table->longText('judge_output');
             $table->integer('start_page');
             $table->integer('end_page');
             $table->integer('competition_problem_set_id')->unsigned();

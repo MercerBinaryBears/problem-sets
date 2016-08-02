@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Problem extends Model
 {
-    protected $fillable = ['name', 'start_page', 'end_page', 'competition_problem_set_id'];
+    protected $fillable = ['name', 'sample_input', 'sample_output', 'judge_input', 'judge_output', 'start_page', 'end_page', 'competition_problem_set_id'];
 
     public function competitionProblemSet()
     {
