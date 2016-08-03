@@ -4,6 +4,11 @@ use \FPDI;
 
 class PdfService
 {
+    protected function pageName($pdf_file_path, $page_index)
+    {
+        return basename($pdf_file_path, '.pdf') . "_page_$page_index.pdf";
+    }
+
     public function split($pdf_file_path, $output_directory)
     {
         $output_directory = basename($output_directory);
@@ -19,7 +24,7 @@ class PdfService
             $new_pdf->setSourceFile($pdf_file_path);
             $new_pdf->useTemplate($new_pdf->importPage($i));
 
-            $new_filename = tempnam(storage_path() . "/$output_directory", "page$i");
+            $new_filename = storage_path($output_directory) . '/' . $this->pageName($pdf_file_path, $i);
             $new_pdf->Output($new_filename, 'F');
 
             $filenames[] = $new_filename;
