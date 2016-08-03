@@ -18,8 +18,7 @@ Route::get('/', function () {
 Route::get('/problems/{id}/pdf', function($id) {
     $problem = App\Problem::find($id);
     if($problem === null) {
-        // TODO: Make this a 404
-        throw new Exception('Not Found');
+        abort(404);
     }
 
     return $problem->name;
@@ -28,9 +27,7 @@ Route::get('/problems/{id}/pdf', function($id) {
 Route::get('/problems/{id}', function($id) {
     $problem = App\Problem::find($id);
     if($problem === null) {
-        // TODO: Make this a 404
-        //throw new Exception('Not Found');
-        $problem = new App\Problem(['name' => 'Test']);
+        abort(404);
     }
 
     return view('problem', ['problem' => $problem]);
