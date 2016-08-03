@@ -15,29 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/competition-problem-sets/{id}/pdf', function($id) {
-    $problem_set = App\CompetitionProblemSet::find($id);
-    if($problem_set === null) {
-        abort(404);
-    }
-
-    return Response::download($problem_set->full_path);
+Route::get('/competitions/{competition}/pdf', function($competition) {
+    return Response::download($competition->full_path);
 });
 
-Route::get('/problems/{id}/pdf', function($id) {
-    $problem = App\Problem::find($id);
-    if($problem === null) {
-        abort(404);
-    }
-
+Route::get('/problems/{problem}/pdf', function($problem) {
     return $problem->name;
 });
 
-Route::get('/problems/{id}', function($id) {
-    $problem = App\Problem::find($id);
-    if($problem === null) {
-        abort(404);
-    }
-
+Route::get('/problems/{problem}', function($problem) {
     return view('problem', ['problem' => $problem]);
 });
