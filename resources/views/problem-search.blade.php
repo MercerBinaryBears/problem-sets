@@ -4,7 +4,14 @@
         <form action="/problems">
             <label>Name <input name="name" type="text" /></label>
             <br/>
-            <label>Tags <select></select></label>
+            <label>
+                Tags
+                <select name="tags" multiple="multiple">
+                @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                @endforeach
+                </select>
+            </label>
             <br/>
             <button>Search</button>
         </form>

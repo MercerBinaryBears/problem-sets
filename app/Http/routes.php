@@ -5,9 +5,10 @@ Route::get('/', function () {
 });
 
 Route::get('/problems', function() {
+    $tags = \App\Tag::all();
     $search_results = \App\Problem::all();
 
-    return view('problem-search', ['search_results' => $search_results]);
+    return view('problem-search', ['search_results' => $search_results, 'tags' => $tags]);
 });
 
 Route::get('/competitions/{competition}/pdf', function($competition) {
