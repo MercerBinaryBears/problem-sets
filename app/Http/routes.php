@@ -4,6 +4,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/problems', function() {
+    $search_results = \App\Problem::all();
+
+    return view('problem-search', ['search_results' => $search_results]);
+});
+
 Route::get('/competitions/{competition}/pdf', function($competition) {
     return Response::download($competition->full_path);
 });
