@@ -11,7 +11,7 @@ class SplitCompetitionProblemSetPdf extends Command
      *
      * @var string
      */
-    protected $signature = 'split {competition_problem_set_id}';
+    protected $signature = 'split:competition {competition_problem_set_id}';
 
     /**
      * The console command description.

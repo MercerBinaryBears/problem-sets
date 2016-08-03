@@ -22,7 +22,7 @@ class CompetitionProblemSet extends Model
     public static function boot()
     {
         CompetitionProblemSet::created(function($problemSet) {
-            \Artisan::call('split', ['competition_problem_set_id' => $problemSet->id]);
+            \Artisan::call('split:competition', ['competition_problem_set_id' => $problemSet->id]);
         });
     }
 }
