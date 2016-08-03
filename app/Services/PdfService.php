@@ -32,4 +32,24 @@ class PdfService
 
         return $filenames;
     }
+
+    public function join($pdf_files, $output_file)
+    {
+        $fpdi = new FPDI();
+
+        foreach($pdf_files as $file) {
+            $page_count = $fpdi->setSourceFile($file);
+
+            for($i = 1; $i <= $page_count; $i++) {
+                $template = $fpdi->importPage($i);
+                $size = $fpdi->getTemplateSize($template);
+
+                $fpdi->AddPage('P', [$size['w'], $size['h']]);
+                $fpdi->useTemplate($template);
+            }
+        }
+
+        // Output the result in 'F' (File) mode
+        $fpdi->Output($output_file, 'F');
+    }
 }
