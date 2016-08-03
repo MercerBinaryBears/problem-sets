@@ -8,6 +8,16 @@ class PracticeProblemSet extends Model
 {
     protected $fillable = ['name'];
 
+    public static function boot()
+    {
+        $do_split = function($practice) {
+            \Artisan::call('join:practice', ['practice_id' => $practice->id]);
+        };
+
+        PracticeProblemSet::created($do_split);
+        PracticeProblemSet::updated($do_split);
+    }
+
     public function problems()
     {
         return $this->belongsToMany('App\Problem');
