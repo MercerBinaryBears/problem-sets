@@ -22,9 +22,7 @@ class CompetitionProblemSet extends Model
     public static function boot()
     {
         CompetitionProblemSet::created(function($problemSet) {
-            $output_directory = storage_path('split_pages') . '/';
-            $output_files = \App::make('App\Services\PdfService')->split($problemSet->fullPath, $output_directory);
-            \Log::info($problemSet->name . ' split ' . var_export($output_files, true));
+            \Artisan::call('split', ['competition_problem_set_id' => $problemSet->id]);
         });
     }
 }
