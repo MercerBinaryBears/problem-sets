@@ -15,3 +15,7 @@ Route::get('/problems/{problem}/pdf', function($problem) {
 Route::get('/problems/{problem}', function($problem) {
     return view('problem', ['problem' => $problem]);
 });
+
+Route::get('/practice/{practice}/pdf', function($practice) {
+    return Response::download($practice->full_path);
+});
