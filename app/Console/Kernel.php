@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\SplitCompetitionProblemSetPdf::class
+        \App\Console\Commands\SplitCompetitionProblemSetPdf::class,
+        \App\Console\Commands\JoinProblem::class,
     ];
 
     /**

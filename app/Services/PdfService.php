@@ -4,7 +4,7 @@ use \FPDI;
 
 class PdfService
 {
-    protected function pageName($pdf_file_path, $page_index)
+    public function pageName($pdf_file_path, $page_index)
     {
         return basename($pdf_file_path, '.pdf') . "_page_$page_index.pdf";
     }
