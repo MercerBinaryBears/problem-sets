@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\SplitCompetitionProblemSetPdf::class,
         \App\Console\Commands\JoinProblem::class,
+        \App\Console\Commands\JoinProblemSet::class,
     ];
 
     /**
