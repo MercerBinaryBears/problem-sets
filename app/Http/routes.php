@@ -9,7 +9,7 @@ Route::get('/competitions/{competition}/pdf', function($competition) {
 });
 
 Route::get('/problems/{problem}/pdf', function($problem) {
-    return $problem->name;
+    return Response::download($problem->full_path);
 });
 
 Route::get('/problems/{problem}', function($problem) {
