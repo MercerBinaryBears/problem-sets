@@ -9,6 +9,8 @@ Route::get('/problems', function() {
 
     $query = \App\Problem::where('problems.name', 'like', '%' . Request::get('name') . '%');
 
+    $tag_ids = [];
+
     if(Request::get('tags') !== '') {
         $tag_ids = array_map('intval', explode(',', Request::get('tags')));
         $query->join('problem_tag', 'problems.id', '=', 'problem_tag.problem_id')
@@ -23,6 +25,8 @@ Route::get('/problems', function() {
     return view('problem-search', [
         'search_results' => $search_results,
         'tags' => $tags,
+        'searched_tags' => $tag_ids,
+        'searched_name' => Request::get('name'),
     ]);
 });
 

@@ -7,13 +7,13 @@
     </head>
     <body>
         <form action="/problems">
-            <label>Name <input name="name" type="text" /></label>
+            <label>Name <input name="name" type="text" value="{{ $searched_name }}" /></label>
             <br/>
             <label>
                 Tags
                 <select name="tags" multiple="multiple">
                 @foreach($tags as $tag)
-                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    <option value="{{ $tag->id }}" {{ in_array($tag->id, $searched_tags) ? "selected=selected" : null }} >{{ $tag->name }}</option>
                 @endforeach
                 </select>
             </label>
