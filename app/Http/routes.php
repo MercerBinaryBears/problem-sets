@@ -7,12 +7,18 @@ Route::get('/', function () {
 Route::get('/problems', function() {
     $tags = \App\Tag::all();
 
-    $tag_ids = explode(',', Request::get('tags'));
+    $query = \App\Problem::where('problems.name', 'like', '%' . Request::get('name') . '%');
 
-    // select problems.* from problems inner join problem_tag on problems.id = problem_id where tag_id in (1, 2) group by problem_id having count(*) = 2;
+    if(Request::get('tags') !== '') {
+        $tag_ids = array_map('intval', explode(',', Request::get('tags')));
+        $query->join('problem_tag', 'problems.id', '=', 'problem_tag.problem_id')
+            ->whereIn('tag_id', $tag_ids)
+            ->groupBy('problem_id')
+            ->havingRaw("count(*) <= " . count($tag_ids))
+            ->select('problems.*');
+    }
 
-    $search_results = \App\Problem::where('problems.name', 'like', '%' . Request::get('name') . '%')
-        ->get();
+    $search_results = $query->get();
 
     return view('problem-search', [
         'search_results' => $search_results,
