@@ -6,9 +6,18 @@ Route::get('/', function () {
 
 Route::get('/problems', function() {
     $tags = \App\Tag::all();
-    $search_results = \App\Problem::all();
 
-    return view('problem-search', ['search_results' => $search_results, 'tags' => $tags]);
+    $tag_ids = explode(',', Request::get('tags'));
+
+    // select problems.* from problems inner join problem_tag on problems.id = problem_id where tag_id in (1, 2) group by problem_id having count(*) = 2;
+
+    $search_results = \App\Problem::where('problems.name', 'like', '%' . Request::get('name') . '%')
+        ->get();
+
+    return view('problem-search', [
+        'search_results' => $search_results,
+        'tags' => $tags,
+    ]);
 });
 
 Route::get('/competitions/{competition}/pdf', function($competition) {
