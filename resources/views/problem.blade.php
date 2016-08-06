@@ -3,11 +3,11 @@
 @section('content')
         <h1>{{ $problem->name }}</h1>
         <h2>Tags</h2>
-        <ul>
-            @foreach($problem->tags as $tag)
-                <li> {{ $tag->name }} </li>
-            @endforeach
-        </ul>
+        <div class="grid">
+        @foreach($problem->tags as $tag)
+            <div class="tag grid-25"> {{ $tag->name }} </div>
+        @endforeach
+        </div>
          <h2>Sample Input</h2>
         <textarea readonly="true">{{ $problem->sample_input }}</textarea>
          <h2>Sample Output</h2>
