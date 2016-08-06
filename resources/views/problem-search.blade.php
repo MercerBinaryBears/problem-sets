@@ -1,11 +1,11 @@
-<!DOCTYPE>
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.1/chosen.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.1/chosen.jquery.min.js"></script>
-    </head>
-    <body>
+@extends('layouts.main')
+
+@section('styles')
+    @parent
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.1/chosen.min.css">
+@endsection
+
+@section('content')
         <form action="/problems">
             <label>Name <input name="name" type="text" value="{{ $searched_name }}" /></label>
             <br/>
@@ -27,19 +27,24 @@
             </li>
         @endforeach
         </ul>
-        <script>
-            $('[name=tags]').chosen();
-            $('form').on('submit', function() {
-                var query = {
-                    name: $('[name=name]').val(),
-                    tags: $('[name=tags]').val().join(',')
-                }
+@endsection
 
-                var url = window.location.pathname + '?' + $.param(query);
-                window.location = url;
+@section('scripts')
+    @parent
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.1/chosen.jquery.min.js"></script>
+    <script>
+        $('[name=tags]').chosen();
+        $('form').on('submit', function() {
+            var query = {
+                name: $('[name=name]').val(),
+                tags: $('[name=tags]').val().join(',')
+            }
 
-                return false;
-            });
-        </script>
-    </body>
-</html>
+            var url = window.location.pathname + '?' + $.param(query);
+            window.location = url;
+
+            return false;
+        });
+    </script>
+@endsection

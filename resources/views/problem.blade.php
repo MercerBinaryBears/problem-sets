@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
+@extends('layouts.main')
+
+@section('content')
         <h1>{{ $problem->name }}</h1>
         <h2>Tags</h2>
         <ul>
@@ -18,5 +16,4 @@
         <textarea readonly="true">{{ $problem->judge_input }}</textarea>
          <h2>Judge Output</h2>
         <textarea readonly="true">{{ $problem->judge_output }}</textarea>
-    </body>
-</html>
+@endsection
