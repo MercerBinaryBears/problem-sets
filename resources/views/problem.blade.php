@@ -8,12 +8,22 @@
             <div class="tag grid-25"> {{ $tag->name }} </div>
         @endforeach
         </div>
-         <h2>Sample Input</h2>
-        <textarea readonly="true">{{ $problem->sample_input }}</textarea>
-         <h2>Sample Output</h2>
-        <textarea readonly="true">{{ $problem->sample_output }}</textarea>
-         <h2>Judge Input</h2>
-        <textarea readonly="true">{{ $problem->judge_input }}</textarea>
-         <h2>Judge Output</h2>
-        <textarea readonly="true">{{ $problem->judge_output }}</textarea>
+        <div class="grid">
+            <div class="grid-50">
+                 <h2>Sample Input</h2>
+                <textarea readonly="true">{{ $problem->sample_input }}</textarea>
+            </div>
+            <div class="grid-50">
+                 <h2>Sample Output</h2>
+                <textarea readonly="true">{{ $problem->sample_output }}</textarea>
+            </div>
+            <div class="grid-50">
+                <h2>Judge Input</h2>
+                <textarea readonly="true">{{ $problem->judge_input }}</textarea>
+            </div>
+            <div class="grid-50">
+                <h2>Judge Output</h2>
+                <textarea readonly="true">{{ $problem->judge_output }}</textarea>
+            </div>
+        </div>
 @endsection
