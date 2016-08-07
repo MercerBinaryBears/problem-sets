@@ -10,7 +10,7 @@
             <label class="grid-25" for="name">Name</label>
             <input id="name" class="grid-75" name="name" type="text" value="{{ $searched_name }}" />
             <label class="grid-25" for="tags">Tags</label>
-            <select name="tags" class="grid-75" multiple="multiple">
+            <select name="tags" class="grid-75" multiple="multiple" data-chosen="true">
             @foreach($tags as $tag)
                 <option value="{{ $tag->id }}" {{ in_array($tag->id, $searched_tags) ? "selected=selected" : null }} >{{ $tag->name }}</option>
             @endforeach
@@ -30,8 +30,8 @@
     @parent
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.1/chosen.jquery.min.js"></script>
+    <script src="/build/js/autowire-chosen.js"></script>
     <script>
-        $('[name=tags]').chosen();
         $('form').on('submit', function() {
             var query = {
                 name: $('[name=name]').val(),
