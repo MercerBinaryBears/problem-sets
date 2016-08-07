@@ -31,11 +31,11 @@ Route::get('/problems', function() {
 });
 
 Route::get('/competitions/{competition}/pdf', function($competition) {
-    return Response::download($competition->full_path);
+    return Response::pdf($competition->full_path, "competition{$competition->id}.pdf");
 });
 
 Route::get('/problems/{problem}/pdf', function($problem) {
-    return Response::download($problem->full_path);
+    return Response::pdf($problem->full_path, "problem{$problem->id}.pdf");
 });
 
 Route::get('/problems/{problem}', function($problem) {
@@ -43,5 +43,5 @@ Route::get('/problems/{problem}', function($problem) {
 });
 
 Route::get('/practice/{practice}/pdf', function($practice) {
-    return Response::download($practice->full_path);
+    return Response::pdf($practice->full_path, "practice{$practice->id}.pdf");
 });
