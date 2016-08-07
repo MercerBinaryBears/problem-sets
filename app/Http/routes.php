@@ -26,7 +26,7 @@ Route::get('/problems', function() {
 
     $search_results = $query->get();
 
-    return view('problem-search', [
+    return view('problems.all', [
         'search_results' => $search_results,
         'tags' => $tags,
         'searched_tags' => $tag_ids,
@@ -43,7 +43,7 @@ Route::get('/problems/{problem}/pdf', function($problem) {
 });
 
 Route::get('/problems/{problem}', function($problem) {
-    return view('problem', ['problem' => $problem]);
+    return view('problems.show', ['problem' => $problem]);
 });
 
 Route::get('/practice/{practice}/pdf', function($practice) {
