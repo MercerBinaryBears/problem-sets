@@ -52,9 +52,12 @@ Route::get('/random-practice', function() {
     }
 
     $problem_count = intval(Request::get('problem_count', 3));
-    $all_problems = $query->get();
-    $problem_count = min($problem_count, $all_problems->count());
-    $problem_ids = $all_problems->random($problem_count)->lists('id');
+
+    $problem_ids = $query->inRandomOrder()
+        ->take($problem_count)
+        ->get()
+        ->lists('id');
+
     $problems_string = implode(',', $problem_ids->toArray());
 
     return Redirect::to("/practice/${problems_string}");
