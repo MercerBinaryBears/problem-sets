@@ -28,7 +28,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $router->model('competition', 'App\CompetitionProblemSet');
         $router->model('problem', 'App\Problem');
-        $router->model('practice', 'App\PracticeProblemSet');
+        $router->bind('problems', function($problems_string) {
+            $problem_ids = array_map('intval', explode(',', $problems_string));
+            return \App\Problem::whereIn('id', $problem_ids)->get();
+        });
     }
 
     /**

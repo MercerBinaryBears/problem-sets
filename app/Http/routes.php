@@ -40,8 +40,8 @@ Route::get('/problems/{problem}', function($problem) {
     return view('problems.show', ['problem' => $problem]);
 });
 
-Route::get('/practice/{practice}/pdf', function($practice) {
-    return Response::pdf($practice->full_path, "practice{$practice->id}.pdf");
+Route::get('/practice/{problems}/', function($problems) {
+    return $problems;
 });
 
 Route::get('/random-practice', function() {
@@ -54,5 +54,8 @@ Route::get('/random-practice', function() {
     $problem_count = intval(Request::get('problem_count', 3));
     $all_problems = $query->get();
     $problem_count = min($problem_count, $all_problems->count());
-    return $all_problems->random($problem_count);
+    $problem_ids = $all_problems->random($problem_count)->lists('id');
+    $problems_string = implode(',', $problem_ids->toArray());
+
+    return Redirect::to("/practice/${problems_string}");
 });
