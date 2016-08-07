@@ -4,9 +4,7 @@
     <a href="/">Back</a>
     <ul>
     @foreach($problems as $problem)
-        <li>
-            <a href="/problems/{{ $problem->id }}">{{ $problem->name }}</a>
-        </li>
+        <li>@include('partials.problem_listing')</li>
     @endforeach
     </ul>
 @endsection

@@ -12,9 +12,7 @@
 
         <ul class="search-results">
         @foreach($search_results as $problem)
-            <li>
-                <a href="/problems/{{ $problem->id }}">{{ $problem->name }}</a>
-            </li>
+            <li>@include('partials.problem_listing')</li>
         @endforeach
         </ul>
 @endsection
