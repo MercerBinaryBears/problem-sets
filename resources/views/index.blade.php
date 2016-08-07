@@ -12,11 +12,11 @@
     </div>
     <div class="grid-33">
         <h2>Search Problems</h2>
-        @include('partials.problem_search_form', ['searched_name' => '', 'tags' => \App\Tag::all(), 'searched_tags' => []])
+        @include('partials.problem_search_form', ['searched_name' => '', 'searched_tags' => []])
     </div>
     <div class="grid-33">
         <h2>Generate Problem Set</h2>
-        @include('partials.generate_problem_set_form', ['tags' => \App\Tag::all()])
+        @include('partials.generate_problem_set_form')
     </div>
 </div>
 @endsection

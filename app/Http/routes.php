@@ -1,7 +1,9 @@
 <?php
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', [
+        'tags' => \App\Tag::all()
+    ]);
 });
 
 Route::get('/problems', function() {
