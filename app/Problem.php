@@ -36,4 +36,13 @@ class Problem extends Model
     {
         return storage_path('problem_cache') . "/problem_$this->id.pdf";
     }
+
+    public function scopeHasTags($query, $tag_ids)
+    {
+        return $query->join('problem_tag', 'problems.id', '=', 'problem_tag.problem_id')
+            ->whereIn('tag_id', $tag_ids)
+            ->groupBy('problem_id')
+            ->havingRaw("count(*) <= " . count($tag_ids))
+            ->select('problems.*');
+    }
 }

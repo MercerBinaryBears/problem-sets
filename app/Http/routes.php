@@ -17,11 +17,7 @@ Route::get('/problems', function() {
 
     if(Request::get('tags', '') !== '') {
         $tag_ids = array_map('intval', explode(',', Request::get('tags')));
-        $query->join('problem_tag', 'problems.id', '=', 'problem_tag.problem_id')
-            ->whereIn('tag_id', $tag_ids)
-            ->groupBy('problem_id')
-            ->havingRaw("count(*) <= " . count($tag_ids))
-            ->select('problems.*');
+        $query->hasTags($tag_ids);
     }
 
     $search_results = $query->get();
