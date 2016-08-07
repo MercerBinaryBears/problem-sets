@@ -7,11 +7,15 @@ Route::get('/', function () {
 Route::get('/problems', function() {
     $tags = \App\Tag::all();
 
-    $query = \App\Problem::where('problems.name', 'like', '%' . Request::get('name') . '%');
+    $query = \App\Problem::query();
+
+    if(Request::get('name', '') !== '') {
+        $query->where('problems.name', 'like', '%' . Request::get('name') . '%');
+    }
 
     $tag_ids = [];
 
-    if(Request::get('tags') !== '') {
+    if(Request::get('tags', '') !== '') {
         $tag_ids = array_map('intval', explode(',', Request::get('tags')));
         $query->join('problem_tag', 'problems.id', '=', 'problem_tag.problem_id')
             ->whereIn('tag_id', $tag_ids)
