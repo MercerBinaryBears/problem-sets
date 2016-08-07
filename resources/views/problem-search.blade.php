@@ -23,7 +23,7 @@
         <ul class="search-results">
         @foreach($search_results as $problem)
             <li>
-                <a href="/problems/{{ $problem->id }}/pdf">{{ $problem->name }}</a>
+                <a href="/problems/{{ $problem->id }}">{{ $problem->name }}</a>
             </li>
         @endforeach
         </ul>
