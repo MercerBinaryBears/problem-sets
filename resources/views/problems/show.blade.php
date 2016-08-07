@@ -9,7 +9,7 @@
             <div class="tag grid-25"> {{ $tag->name }} </div>
         @endforeach
         </div>
-        @include('partials.pdf_preview', ['path' => "/problems/{$problem->id}/pdf", 'title' => $problem->name ])
+        @include('partials.pdf_preview', ['path' => "/problems/{$problem->id}/pdf" ])
         <div class="grid">
             <div class="grid-50">
                  <h2>Sample Input</h2>
