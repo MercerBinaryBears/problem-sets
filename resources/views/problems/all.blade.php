@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+        <a href="/">Back</a>
         @include('partials.problem_search_form')
 
         <ul class="search-results">
