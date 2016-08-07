@@ -11,7 +11,8 @@
         Hey
     </div>
     <div class="grid-33">
-        Hey
+        <h2>Search Problems</h2>
+        @include('partials.problem_search_form', ['searched_name' => '', 'tags' => []])
     </div>
     <div class="grid-33">
         Hey
