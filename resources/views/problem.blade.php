@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+        <a href="/problems/">Back</a>
         <h1>{{ $problem->name }}</h1>
         <h2>Tags</h2>
         <div class="grid">
