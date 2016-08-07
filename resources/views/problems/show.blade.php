@@ -9,10 +9,7 @@
             <div class="tag grid-25"> {{ $tag->name }} </div>
         @endforeach
         </div>
-        <div class="iframe-wrapper">
-            <h2>View Full</h2>
-            <iframe src="/problems/{{ $problem->id }}/pdf"></iframe>
-        </div>
+        @include('partials.pdf_preview', ['path' => "/problems/{$problem->id}/pdf"])
         <div class="grid">
             <div class="grid-50">
                  <h2>Sample Input</h2>
