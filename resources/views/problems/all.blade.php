@@ -18,21 +18,3 @@
         @endforeach
         </ul>
 @endsection
-
-@section('scripts')
-    @parent
-    @include('assets.chosen-scripts')
-    <script>
-        $('form').on('submit', function() {
-            var query = {
-                name: $('[name=name]').val(),
-                tags: $('[name=tags]').val().join(',')
-            }
-
-            var url = window.location.pathname + '?' + $.param(query);
-            window.location = url;
-
-            return false;
-        });
-    </script>
-@endsection

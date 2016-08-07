@@ -1,4 +1,4 @@
-<form class="grid" action="/problems">
+<form class="grid" action="/problems" data-search-form="true">
     <label class="grid-25" for="name">Name</label>
     <input id="name" class="grid-75" name="name" type="text" value="{{ $searched_name }}" />
     <label class="grid-25" for="tags">Tags</label>
@@ -9,3 +9,5 @@
     </select>
     <button class="grid-100">Search</button>
 </form>
+@include('assets.chosen-scripts')
+<script src="/build/js/search-form.js"></script>

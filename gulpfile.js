@@ -14,6 +14,7 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix
       .copy('resources/assets/js/autowire-chosen.js', 'public/build/js/autowire-chosen.js')
+      .copy('resources/assets/js/search-form.js', 'public/build/js/search-form.js')
       .less('app.less')
       .version('css/app.css');
 });
