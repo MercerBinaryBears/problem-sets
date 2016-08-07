@@ -41,7 +41,7 @@ Route::get('/problems/{problem}', function($problem) {
 });
 
 Route::get('/practice/{problems}/', function($problems) {
-    return $problems;
+    return view('practices.show', ['problems' => $problems]);
 });
 
 Route::get('/random-practice', function() {
