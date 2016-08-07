@@ -47,3 +47,12 @@ Route::get('/problems/{problem}', function($problem) {
 Route::get('/practice/{practice}/pdf', function($practice) {
     return Response::pdf($practice->full_path, "practice{$practice->id}.pdf");
 });
+
+Route::get('/random-practice', function() {
+    $query = \App\Problem::query();
+    if(Request::get('tags', '') !== '') {
+        $tag_ids = array_map('intval', explode(',', Request::get('tags')));
+        $query->hasTags($tag_ids);
+    }
+    return $query->get()->random(1);
+});
