@@ -54,5 +54,9 @@ Route::get('/random-practice', function() {
         $tag_ids = array_map('intval', explode(',', Request::get('tags')));
         $query->hasTags($tag_ids);
     }
-    return $query->get()->random(1);
+
+    $problem_count = intval(Request::get('problem_count', 3));
+    $all_problems = $query->get();
+    $problem_count = min($problem_count, $all_problems->count());
+    return $all_problems->random($problem_count);
 });
