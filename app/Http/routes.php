@@ -6,7 +6,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/problems', function() {
+Route::get('/problems{format?}', function($format = null) {
     $tags = \App\Tag::all();
 
     $query = \App\Problem::query();
@@ -23,6 +23,10 @@ Route::get('/problems', function() {
     }
 
     $search_results = $query->get();
+
+    if($format === '.json') {
+        return $search_results;
+    }
 
     return view('problems.all', [
         'search_results' => $search_results,
@@ -75,4 +79,8 @@ Route::get('/random-practice', function() {
     $problems_string = implode(',', $problem_ids->toArray());
 
     return Redirect::to("/practice/${problems_string}");
+});
+
+Route::get('/practice-builder', function() {
+    return view('practices.builder');
 });
