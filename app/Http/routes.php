@@ -41,7 +41,15 @@ Route::get('/problems/{problem}', function($problem) {
 });
 
 Route::get('/practice/{problems}/', function($problems) {
-    return view('practices.show', ['problems' => $problems]);
+    // generate the needed pdf (if it's not there)
+    $practice_path = storage_path('practice_cache') . '/practice_' . implode('_', $problems->lists('id')->toArray()) . '.pdf';
+
+    if(!file_exists($practice_path)) {
+        $input_files = $problems->lists('full_path')->toArray();
+        App::make('\App\Services\PdfService')->join($input_files, $practice_path);
+    }
+
+    return view('practices.show', ['problems' => $problems, 'practice_path' => $practice_path]);
 });
 
 Route::get('/random-practice', function() {
