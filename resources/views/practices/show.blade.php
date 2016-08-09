@@ -7,4 +7,5 @@
         <li>@include('partials.problem_listing')</li>
     @endforeach
     </ul>
+    @include('partials.pdf_preview', ['path' => $pdf_path])
 @endsection
