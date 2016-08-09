@@ -1,15 +1,18 @@
 <?php
 
+use \App\Problem;
+use \App\Tag;
+
 Route::get('/', function () {
     return view('index', [
-        'tags' => \App\Tag::all()
+        'tags' => Tag::all()
     ]);
 });
 
 Route::get('/problems{format?}', function($format = null) {
-    $tags = \App\Tag::all();
+    $tags = Tag::all();
 
-    $query = \App\Problem::query();
+    $query = Problem::query();
 
     if(Request::get('name', '') !== '') {
         $query->where('problems.name', 'like', '%' . Request::get('name') . '%');
@@ -63,7 +66,7 @@ Route::get('/practice/{problems}/pdf', function($problems) {
 });
 
 Route::get('/random-practice', function() {
-    $query = \App\Problem::query();
+    $query = Problem::query();
     if(Request::get('tags', '') !== '') {
         $tag_ids = array_map('intval', explode(',', Request::get('tags')));
         $query->hasTags($tag_ids);
