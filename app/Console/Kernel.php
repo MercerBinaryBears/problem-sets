@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SplitCompetitionProblemSetPdf::class,
         \App\Console\Commands\JoinProblem::class,
         \App\Console\Commands\JoinProblemSet::class,
+        \App\Console\Commands\RebuildPdfsCommand::class,
     ];
 
     /**
