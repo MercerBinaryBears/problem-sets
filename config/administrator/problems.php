@@ -65,7 +65,7 @@ return array(
             'type' => 'number',
         ),
         'end_page' => array(
-            'title' => 'Start Page',
+            'title' => 'End Page',
             'type' => 'number',
         ),
         'sample_input' => array(
