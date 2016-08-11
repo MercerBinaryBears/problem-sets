@@ -24,7 +24,7 @@ return array(
             'title' => 'Preview',
             'output' => function($id) {
                 $url = "/problems/$id/pdf";
-                return "<iframe src='$url' height='300px' width='250px'></iframe>";
+                return "<iframe src='$url' height='250px' width='300px'></iframe>";
             }
         ),
     ),
