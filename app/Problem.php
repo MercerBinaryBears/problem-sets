@@ -10,7 +10,7 @@ class Problem extends Model
 
     public static function boot() {
         $do_split = function($problemSet) {
-            \Artisan::call('join:problem', ['problem_id' => $problemSet->id]);
+            \Artisan::call('pdf:join:problem', ['problem_id' => $problemSet->id]);
         };
 
         Problem::created($do_split);

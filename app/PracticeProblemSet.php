@@ -11,7 +11,7 @@ class PracticeProblemSet extends Model
     public static function boot()
     {
         $do_split = function($practice) {
-            \Artisan::call('join:practice', ['practice_id' => $practice->id]);
+            \Artisan::call('pdf:join:practice', ['practice_id' => $practice->id]);
         };
 
         PracticeProblemSet::created($do_split);

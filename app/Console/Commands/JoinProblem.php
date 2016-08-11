@@ -11,7 +11,7 @@ class JoinProblem extends Command
      *
      * @var string
      */
-    protected $signature = 'join:problem {problem_id}';
+    protected $signature = 'pdf:join:problem {problem_id}';
 
     /**
      * The console command description.
