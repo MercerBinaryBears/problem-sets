@@ -20,6 +20,13 @@ return array(
             'relationship' => 'tags',
             'select' => 'GROUP_CONCAT((:table).name, ", ")'
         ),
+        'id' => array(
+            'title' => 'Preview',
+            'output' => function($id) {
+                $url = "/problems/$id/pdf";
+                return "<iframe src='$url' height='300px' width='250px'></iframe>";
+            }
+        ),
     ),
 
     'filters' => array(
