@@ -42,12 +42,22 @@ class RebuildPdfsCommand extends Command
      */
     public function handle()
     {
+        $this->info("Doing competitions...");
         CompetitionProblemSet::lists('id')->each(function($competition_problem_set_id) {
-            Artisan::call('pdf:split:competition', ['competition_problem_set_id' => $competition_problem_set_id]);
+            try {
+                Artisan::call('pdf:split:competition', ['competition_problem_set_id' => $competition_problem_set_id]);
+            } catch(\Exception $e) {
+                $this->error("Error for $competition_problem_set_id: " . $e->getMessage());
+            }
         });
 
+        $this->info('Doing problems...');
         Problem::lists('id')->each(function($problem_id) {
-            Artisan::call('pdf:join:problem', ['problem_id' => $problem_id]);
+            try {
+                Artisan::call('pdf:join:problem', ['problem_id' => $problem_id]);
+            } catch(\Exception $e) {
+                $this->error("Error for $competition_problem_set_id: " . $e->getMessage());
+            }
         });
     }
 }
