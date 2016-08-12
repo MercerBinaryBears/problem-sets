@@ -47,7 +47,7 @@ class RebuildPdfsCommand extends Command
         });
 
         Problem::lists('id')->each(function($problem_id) {
-            Artisan::call('pdf:join:problem', ['problem_id' => $problemSet->id]);
+            Artisan::call('pdf:join:problem', ['problem_id' => $problem_id]);
         });
     }
 }
