@@ -9,7 +9,14 @@ return [
     'columns' => [
         'name' => [
             'title' => 'Name'
-        ]
+        ],
+        'id' => array(
+            'title' => 'Preview',
+            'output' => function($id) {
+                $url = "/competitions/$id/pdf";
+                return "<iframe src='$url' height='250px' width='300px'></iframe>";
+            }
+        ),
     ],
 
     'filters' => [

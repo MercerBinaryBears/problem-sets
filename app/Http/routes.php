@@ -43,6 +43,10 @@ Route::get('/problems/{problem}/pdf', function($problem) {
     return Response::pdf($problem->full_path, "problem{$problem->id}.pdf");
 });
 
+Route::get('/competitions/{competition}/pdf', function($competition) {
+    return Response::pdf($competition->full_path, "competition{$competition->id}.pdf");
+});
+
 Route::get('/problems/{problem}', function($problem) {
     return view('problems.show', ['problem' => $problem]);
 });
