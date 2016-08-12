@@ -56,7 +56,7 @@ class RebuildPdfsCommand extends Command
             try {
                 Artisan::call('pdf:join:problem', ['problem_id' => $problem_id]);
             } catch(\Exception $e) {
-                $this->error("Error for $competition_problem_set_id: " . $e->getMessage());
+                $this->error("Error for $problem_id: " . $e->getMessage());
             }
         });
     }
