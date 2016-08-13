@@ -69,6 +69,7 @@ return array(
         'competition_problem_sets',
         'problems',
         'practice_problem_sets',
+        'solutions',
         'tags',
         'languages',
     ),
