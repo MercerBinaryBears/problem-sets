@@ -70,6 +70,7 @@ return array(
         'problems',
         'practice_problem_sets',
         'tags',
+        'languages',
     ),
 
 	/**
