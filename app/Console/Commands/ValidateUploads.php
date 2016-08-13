@@ -40,15 +40,16 @@ class ValidateUploads extends Command
     {
         $pdfs = glob(storage_path('uploads') . '/*');
         foreach($pdfs as $pdf) {
-            $competition = CompetitionProblemSet::whereFilename(basename($pdf))->first();
+            $filename = basename($pdf);
+            $competition = CompetitionProblemSet::whereFilename($filename)->first();
             $id = $competition ? $competition->id : null;
             $name = $competition ? $competition->name : null;
             $version = $this->pdfVersion($pdf);
 
             if($version > 1.4) {
-                $this->error("$id => $name is not valid (PDF version $version)");
+                $this->error("$id => $name (path=$filename) is not valid (PDF version $version)");
             } else {
-                $this->info("$id => $name is valid (PDF version $version)");
+                $this->info("$id => $name (path=$filename) is valid (PDF version $version)");
             }
         }
     }
