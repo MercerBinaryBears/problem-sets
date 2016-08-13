@@ -8,6 +8,11 @@ class Solution extends Model
 {
     public function problem()
     {
-        return $this->belongsTo('App\Solution');
+        return $this->belongsTo('App\Problem');
+    }
+
+    public function language()
+    {
+        return $this->belongsTo('App\Language');
     }
 }
