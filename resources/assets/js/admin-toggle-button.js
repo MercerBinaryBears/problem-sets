@@ -7,7 +7,7 @@
     if($button.hasClass(showingClass)) {
       $button.parent().find('iframe').remove();
       $button.removeClass(showingClass);
-      return;
+      return false;
     }
 
     var iframeAttributes = {
@@ -17,6 +17,7 @@
     };
     $('<iframe/>').attr(iframeAttributes).appendTo($button.parent());
     $button.html('Hide').addClass(showingClass);
+    return false;
   };
 
   $(function() {
