@@ -15,6 +15,7 @@ elixir(function(mix) {
     mix
       .copy('resources/assets/js/autowire-chosen.js', 'public/build/js/autowire-chosen.js')
       .copy('resources/assets/js/search-form.js', 'public/build/js/search-form.js')
+      .copy('resources/assets/js/admin-toggle-button.js', 'public/build/js/admin-toggle-button.js')
       .less('app.less')
       .version('css/app.css');
 });

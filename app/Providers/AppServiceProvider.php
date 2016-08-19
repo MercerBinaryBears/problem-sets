@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
                 'Content-Disposition' => 'inline; filename="' . $name . '"'
             ]);
         });
+
+        view()->composer(['administrator::layouts.default'], function($view) {
+            $view->js[] = asset('build/js/admin-toggle-button.js');
+        });
     }
 
     /**
