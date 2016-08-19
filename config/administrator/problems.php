@@ -24,7 +24,7 @@ return array(
             'title' => 'Preview',
             'output' => function($id) {
                 $url = "/problems/$id/pdf";
-                return "<iframe src='$url' height='250px' width='300px'></iframe>";
+                return "<button class='toggle-button' data-url='$url' data-show-text='Show' data-hide-text='Hide'>Show</button>";
             }
         ),
     ),
