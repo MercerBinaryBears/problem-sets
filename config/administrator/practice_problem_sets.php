@@ -30,4 +30,15 @@ return array(
             'name_field' => 'name'
         )
     ),
+
+    'actions' => array(
+        'view_pdf' => array(
+            'title' => 'View PDF',
+            'messages' => array(
+            ),
+            'action' => function($problem_set) {
+                return Redirect::to("/problem_sets/{$problem_set->id}/pdf");
+            },
+        ),
+    ),
 );
