@@ -69,6 +69,10 @@ Route::get('/practice/{problems}/pdf', function($problems) {
     return Response::pdf($practice_path);
 });
 
+Route::get('/problem_sets/{problem_set}/pdf', function($problem_set) {
+    return Response::pdf($problem_set->full_path);
+});
+
 Route::get('/random-practice', function() {
     $query = Problem::query();
     if(Request::get('tags', '') !== '') {
