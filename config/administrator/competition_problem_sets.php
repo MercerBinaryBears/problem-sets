@@ -10,13 +10,6 @@ return [
         'name' => [
             'title' => 'Name'
         ],
-        'id' => array(
-            'title' => 'Preview',
-            'output' => function($id) {
-                $url = "/competitions/$id/pdf";
-                return "<button class='toggle-button' data-url='$url' data-show-text='Show' data-hide-text='Hide'>Show</button>";
-            }
-        ),
     ],
 
     'filters' => [
@@ -40,5 +33,16 @@ return [
             'length' => 20,
             'mimes' => 'pdf'
         ],
-    ]
+    ],
+    
+    'actions' => array(
+        'view_pdf' => array(
+            'title' => 'View PDF',
+            'messages' => array(
+            ),
+            'action' => function($competition) {
+                return Redirect::to("/competitions/{$competition->id}/pdf");
+            },
+        ),
+    ),
 ];

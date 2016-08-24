@@ -20,13 +20,6 @@ return array(
             'relationship' => 'tags',
             'select' => 'GROUP_CONCAT((:table).name, ", ")'
         ),
-        'id' => array(
-            'title' => 'Preview',
-            'output' => function($id) {
-                $url = "/problems/$id/pdf";
-                return "<button class='toggle-button' data-url='$url' data-show-text='Show' data-hide-text='Hide'>Show</button>";
-            }
-        ),
     ),
 
     'filters' => array(
@@ -84,5 +77,16 @@ return array(
             'title' => 'Judge Output',
             'type' => 'textarea'
         ),
-    )
+    ),
+
+    'actions' => array(
+        'view_pdf' => array(
+            'title' => 'View PDF',
+            'messages' => array(
+            ),
+            'action' => function($problem) {
+                return Redirect::to("/problems/{$problem->id}/pdf");
+            },
+        ),
+    ),
 );
