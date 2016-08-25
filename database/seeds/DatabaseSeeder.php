@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\CompetitionProblemSet;
 use App\Problem;
+use App\Language;
+use App\Solution;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         $contest = $this->stubContest();
         $this->stubProblems($contest);
+        $language = Language::create([
+            'name' => 'Python',
+            'color' => '#33ff33'
+        ]);
+
+        Problem::all()->each(function($problem) use ($language) {
+            Solution::create([
+                'code' => "print('Hello world')",
+                'language_id' => $language->id,
+                'problem_id' => $problem->id
+            ]);
+        });
     }
 
     public function stubContest() {
