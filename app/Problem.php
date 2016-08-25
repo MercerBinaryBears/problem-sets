@@ -32,6 +32,11 @@ class Problem extends Model
         return $this->belongsToMany('App\PracticeProblemSet');
     }
 
+    public function solutions()
+    {
+        return $this->hasMany('App\Solution');
+    }
+
     public function getFullPathAttribute()
     {
         return storage_path('problem_cache') . "/problem_$this->id.pdf";
