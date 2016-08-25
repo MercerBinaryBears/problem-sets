@@ -29,7 +29,7 @@
             </div>
             @foreach($problem->solutions as $solution)
             <div class="grid-100">
-                <pre><code>{{ $solution->code }}</code></pre>
+                <pre><code class="{{ $solution->slug }}">{{ $solution->code }}</code></pre>
             </div>
             @endforeach
         </div>
