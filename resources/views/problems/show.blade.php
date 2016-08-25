@@ -27,5 +27,10 @@
                 <h2>Judge Output</h2>
                 <textarea readonly="true">{{ $problem->judge_output }}</textarea>
             </div>
+            @foreach($problem->solutions as $solution)
+            <div class="grid-100">
+                <pre><code>{{ $solution->code }}</code></pre>
+            </div>
+            @endforeach
         </div>
 @endsection
