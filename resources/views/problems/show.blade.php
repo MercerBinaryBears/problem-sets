@@ -14,13 +14,13 @@
 @section('content')
         <a href="/problems/">Back</a>
         <h1>{{ $problem->name }}</h1>
+        <a target="_blank" href="/problems/{{ $problem->id }}/pdf">View</a>
         <h2>Tags</h2>
         <div class="grid">
         @foreach($problem->tags as $tag)
             <div class="tag grid-25"> {{ $tag->name }} </div>
         @endforeach
         </div>
-        @include('partials.pdf_preview', ['path' => "/problems/{$problem->id}/pdf" ])
         <div class="grid">
             <div class="grid-50">
                  <h2>Sample Input</h2>
