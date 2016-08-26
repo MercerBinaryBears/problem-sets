@@ -14,28 +14,40 @@ body {
   flex-flow: row wrap;
 }
 .grid-25 {
-  -ms-flex: 25%;
-  flex: 25%;
+  -ms-flex: 21%;
+  flex: 21%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .grid-33 {
-  -ms-flex: 33.333%;
-  flex: 33.333%;
+  -ms-flex: 29.333%;
+  flex: 29.333%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .grid-50 {
-  -ms-flex: 50%;
-  flex: 50%;
+  -ms-flex: 46%;
+  flex: 46%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .grid-66 {
-  -ms-flex: 66.666%;
-  flex: 66.666%;
+  -ms-flex: 62.666%;
+  flex: 62.666%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .grid-75 {
-  -ms-flex: 75%;
-  flex: 75%;
+  -ms-flex: 71%;
+  flex: 71%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .grid-100 {
-  -ms-flex: 100%;
-  flex: 100%;
+  -ms-flex: 96%;
+  flex: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 form > * {
   margin-bottom: 0.5em;
@@ -48,6 +60,11 @@ label {
 label {
   text-align: right;
   padding-right: 1.0rem;
+}
+textarea {
+  width: 100%;
+  resize: none;
+  height: 7em;
 }
 .pdf-preview {
   text-align: center;
