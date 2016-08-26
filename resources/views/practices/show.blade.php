@@ -7,5 +7,5 @@
         <li>@include('partials.problem_listing')</li>
     @endforeach
     </ul>
-    @include('partials.pdf_preview', ['path' => $pdf_path])
+    <a target="_blank" href="{{ $pdf_path }}">View PDF</a>
 @endsection
