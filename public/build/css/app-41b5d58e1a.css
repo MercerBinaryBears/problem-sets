@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 90%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+.grid-25 {
+  -ms-flex: 25%;
+  flex: 25%;
+}
+.grid-33 {
+  -ms-flex: 33.333%;
+  flex: 33.333%;
+}
+.grid-50 {
+  -ms-flex: 50%;
+  flex: 50%;
+}
+.grid-66 {
+  -ms-flex: 66.666%;
+  flex: 66.666%;
+}
+.grid-75 {
+  -ms-flex: 75%;
+  flex: 75%;
+}
+.grid-100 {
+  -ms-flex: 100%;
+  flex: 100%;
+}
+form > * {
+  margin-bottom: 0.5em;
+}
+input[type=text],
+label {
+  font-size: 1.1rem;
+  padding: 0.25rem;
+}
+label {
+  text-align: right;
+  padding-right: 1.0rem;
+}
+.pdf-preview {
+  text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.pdf-preview > h2 {
+  margin: 0;
+}
+.pdf-preview > h2 > a {
+  width: 100%;
+  height: 100%;
+  padding: 1em 0;
+  display: inline-block;
+}
+.pdf-preview > iframe {
+  width: 100%;
+  height: 10em;
+}
+body {
+  background-color: white;
+  text-color: black;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.3em;
+}
+
+/*# sourceMappingURL=app.css.map */
