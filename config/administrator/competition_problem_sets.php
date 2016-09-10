@@ -10,6 +10,12 @@ return [
         'name' => [
             'title' => 'Name'
         ],
+
+        'problems' => [
+            'title' => 'Problems',
+            'relationship' => 'problems',
+            'select' => 'COUNT((:table).id)'
+        ],
     ],
 
     'filters' => [
