@@ -20,6 +20,11 @@ return array(
             'relationship' => 'tags',
             'select' => 'GROUP_CONCAT((:table).name, ", ")'
         ),
+        'solutions' => array(
+            'title' => 'Solutions',
+            'relationship' => 'solutions',
+            'select' => 'COUNT((:table).id)'
+        )
     ),
 
     'filters' => array(
