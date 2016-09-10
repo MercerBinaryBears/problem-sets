@@ -32,6 +32,18 @@ return array(
     ),
 
     'actions' => array(
+        'regenerate_pdf' => array(
+            'title' => 'Regenerate PDF',
+            'messages' => array(
+                'active' => 'Rebuilding PDF...',
+                'success' => 'PDF Rebuilt!',
+                'error' => 'PDF failed to rebuild.'
+            ),
+            'action' => function($practice) {
+                Artisan::call('pdf:join:practice', ['practice_id' => $practice->id]);
+                return true;
+            },
+        ),
         'view_pdf' => array(
             'title' => 'View PDF',
             'messages' => array(
