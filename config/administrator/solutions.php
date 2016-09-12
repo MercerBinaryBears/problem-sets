@@ -37,7 +37,7 @@ return array(
         'problem' => array(
             'title' => 'Problem',
             'type' => 'relationship',
-            'name_field' => 'name'
+            'name_field' => 'unique_name'
         ),
         'language' => array(
             'title' => 'Language',
