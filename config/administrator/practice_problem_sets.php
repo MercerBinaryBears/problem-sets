@@ -27,7 +27,7 @@ return array(
         'problems' => array(
             'title' => 'Problems',
             'type' => 'relationship',
-            'name_field' => 'name'
+            'name_field' => 'unique_name'
         )
     ),
 

@@ -37,6 +37,11 @@ class Problem extends Model
         return $this->hasMany('App\Solution');
     }
 
+    public function getUniqueNameAttribute()
+    {
+        return "{$this->name} ($this->id)";
+    }
+
     public function getFullPathAttribute()
     {
         return storage_path('problem_cache') . "/problem_$this->id.pdf";
