@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\JoinProblemSet::class,
         \App\Console\Commands\RebuildPdfsCommand::class,
         \App\Console\Commands\ValidateUploads::class,
+        \App\Console\Commands\MakeBackup::class,
     ];
 
     /**
