@@ -46,8 +46,9 @@ class MakeBackup extends Command
             'database/database.sqlite'
         ];
 
+        $backup_name = 'backup_' . date('Y_m_d_hi') . '.tgz';
         $files = implode(' ', $file_list);
 
-        `tar -czvf backup.tgz $files`;
+        `tar -czvf $backup_name $files`;
     }
 }
