@@ -68,6 +68,7 @@ return array(
     'menu' => array(
         'competition_problem_sets',
         'problems',
+        'untagged_problems',
         'practice_problem_sets',
         'solutions',
         'tags',
