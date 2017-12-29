@@ -7,3 +7,12 @@ services:
             MYSQL_DATABASE: problem_sets
             MYSQL_USER: problem_sets
             MYSQL_PASSWORD: problem_sets
+    app:
+        image: creativitykills/nginx-php-server:latest
+        environment:
+            LARAVEL: 1
+            COMPOSER_DIRECTORY: /var/www
+        volumes:
+            - ./:/var/www
+        ports:
+            - 8080:80

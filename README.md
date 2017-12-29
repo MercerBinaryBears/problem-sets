@@ -1,13 +1,7 @@
 # Programming Team Problem Set Builder
 Oh man, is it gonna be great! You just wait...
 
-## Install
-* `composer install`
-* `touch database/database.sqlite`
-* Set up your environment for SQLite, as described [here](https://laravel.com/docs/5.2/database#introduction)
-* `php artisan key:generate`
-* `php artisan migrate`
-* `php artisan vendor:publish`
-* `npm install`
-* `gulp` (Make sure you've globally installed gulp via `npm install -g gulp`)
-* `php artisan serve`
+## Setup
+* Copy `sample.env` to `.env`
+* Run `php artisan key:generate` to create an encryption key for the app
+* `docker-compose up --build` should build the server at [http://localhost:8080](http://localhost:8080)
