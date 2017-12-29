@@ -6,3 +6,4 @@ Homestead.json
 .env
 public/packages
 backup.tgz
+.DS_Store
