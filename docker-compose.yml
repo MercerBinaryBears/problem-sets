@@ -2,11 +2,7 @@ version: '3'
 services:
     mysql:
         image: mysql:5
-        environment:
-            MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
-            MYSQL_DATABASE: problem_sets
-            MYSQL_USER: problem_sets
-            MYSQL_PASSWORD: problem_sets
+        env_file: .env
     app:
         image: creativitykills/nginx-php-server:latest
         environment:
