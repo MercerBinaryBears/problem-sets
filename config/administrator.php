@@ -21,7 +21,7 @@ return array(
 	 *
 	 *  @type array
 	 */
-	'middleware' => array(),
+	'middleware' => array('web'),
 
 	/**
 	 * Page title
@@ -83,8 +83,7 @@ return array(
 	 */
 	'permission'=> function()
 	{
-        return true;
-		//return Auth::check();
+		return Session::get('admin') === true;
 	},
 
 	/**
@@ -121,7 +120,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'login_path' => 'auth/login',
+	'login_path' => '/login',
 
 	/**
 	 * The logout path is the path where Administrator will send the user when they click the logout link

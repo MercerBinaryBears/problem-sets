@@ -95,3 +95,26 @@ Route::get('/random-practice', function() {
 Route::get('/practice-builder', function() {
     return view('practices.builder');
 });
+
+Route::get('/login', function() {
+    return view('auth.login');
+});
+
+Route::post('/login', function() {
+    $user = getenv('ADMIN_USER');
+    $password = getenv('ADMIN_PASSWORD');
+
+    if($user === false || $password === false) {
+        return Redirect::to('/login');
+    }
+
+    $user_input = Request::get('username');
+    $password_input = Request::get('password');
+
+    if($user_input == $user && $password_input == $password) {
+        Session::put('admin', true);
+        return Redirect::to('/admin');
+    }
+
+    return Redirect::to('/login');
+});
