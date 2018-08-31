@@ -7,3 +7,4 @@ Homestead.json
 public/packages
 backup.tgz
 .DS_Store
+database/database.sqlite
