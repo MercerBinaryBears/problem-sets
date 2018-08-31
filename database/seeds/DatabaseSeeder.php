@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\CompetitionProblemSet;
 use App\Problem;
+use App\Tag;
 use App\Language;
 use App\Solution;
 
@@ -15,6 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $tag1 = Tag::create([
+            'name' => 'Graph Theory'
+        ]);
+        $tag2 = Tag::create([
+            'name' => 'Combinatorics'
+        ]);
+
         $contest = $this->stubContest();
         $this->stubProblems($contest);
         $language = Language::create([
@@ -22,13 +30,26 @@ class DatabaseSeeder extends Seeder
             'color' => '#33ff33'
         ]);
 
-        Problem::all()->each(function($problem) use ($language) {
+        $problems = Problem::all();
+
+        $problems->each(function($problem) use ($language) {
             Solution::create([
                 'code' => "print('Hello world')",
                 'language_id' => $language->id,
                 'problem_id' => $problem->id
             ]);
         });
+
+        $tag1->problems()->attach([
+            $problems[0]->id,
+            $problems[1]->id,
+            $problems[2]->id,
+        ]);
+        $tag2->problems()->attach([
+            $problems[1]->id,
+            $problems[2]->id,
+            $problems[3]->id,
+        ]);
     }
 
     public function stubContest() {
