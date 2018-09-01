@@ -4,7 +4,7 @@
     </a>
 </h2>
 <h3>Tags</h3>
-<ul>
+<ul class="tag-listing">
 @foreach($problem->tags as $tag)
     <li>
         <a href="/problems?tags={{ $tag->id }}">{{ $tag->name }}</a>

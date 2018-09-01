@@ -94,5 +94,24 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.3em;
 }
+.search-results li > h3 {
+  display: none;
+}
+.search-results .tag-listing {
+  list-style-type: none;
+}
+.search-results .tag-listing li {
+  display: inline;
+  margin-right: 10px;
+}
+.search-results .tag-listing li a {
+  text-decoration: none;
+  color: black;
+  padding: 3px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background-color: #eee;
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+}
 
 /*# sourceMappingURL=app.css.map */

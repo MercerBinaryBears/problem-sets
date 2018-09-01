@@ -10,3 +10,30 @@ body {
     font-family: @font-stack;
     line-height: @line-height;
 }
+
+.search-results {
+    li > h3 {
+        display: none; // it's there for accessibility
+    }
+
+    .tag-listing {
+        list-style-type: none;
+    }
+
+    .tag-listing li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .tag-listing li a {
+        text-decoration: none;
+
+        // copying the chosen library's style
+        color: black;
+        padding: 3px;
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        background-color: #eee;
+        background-image: linear-gradient(#f4f4f4 20%,#f0f0f0 50%,#e8e8e8 52%,#eee 100%);
+    }
+}
