@@ -25,6 +25,8 @@ Route::get('/problems{format?}', function($format = null) {
         $query->hasTags($tag_ids);
     }
 
+    $query->with('tags');
+
     $search_results = $query->get();
 
     if($format === '.json') {
