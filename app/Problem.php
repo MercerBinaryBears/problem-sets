@@ -52,7 +52,7 @@ class Problem extends Model
         return $query->join('problem_tag', 'problems.id', '=', 'problem_tag.problem_id')
             ->whereIn('tag_id', $tag_ids)
             ->groupBy('problem_id')
-            ->havingRaw("count(*) <= " . count($tag_ids))
+            ->havingRaw("count(*) = " . count($tag_ids))
             ->select('problems.*');
     }
 }
