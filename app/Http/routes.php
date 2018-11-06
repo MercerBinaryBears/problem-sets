@@ -29,6 +29,8 @@ Route::get('/problems{format?}', function($format = null) {
 
     $query->with('tags');
 
+    $query->orderBy('problems.name');
+
     $search_results = $query->get();
 
     if($format === '.json') {
