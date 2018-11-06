@@ -12,7 +12,9 @@ Route::get('/', function () {
 Route::get('/problems{format?}', function($format = null) {
     $tags = Tag::all();
 
-    $query = Problem::query();
+    $query = Problem::query()
+        // goofy clause to make laravel not bug out...
+        ->where('problems.id', '>', -1);
 
     if(Request::get('name', '') !== '') {
         $query->where('problems.name', 'like', '%' . Request::get('name') . '%');
