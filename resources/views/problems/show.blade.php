@@ -17,7 +17,7 @@
             <h1 class="grid-100">{{ $problem->name }}</h1>
             <div class="grid grid-50">
                 <iframe class="grid-100" height="350" src="/problems/{{ $problem->id }}/pdf"></iframe>
-                <a class="grid-100" target="_blank" href="/problems/{{ $problem->id }}/pdf">View</a>
+                <a class="grid-100" target="_blank" href="/problems/{{ $problem->id }}/pdf">View Full</a>
             </div>
             <div class="grid-50">
                 <h2 class="grid-100" >Tags</h2>
