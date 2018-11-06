@@ -15,11 +15,18 @@
         <div class="grid">
             <a class="grid-100" href="/problems/">Back</a>
             <h1 class="grid-100">{{ $problem->name }}</h1>
-            <a class="grid-100" target="_blank" href="/problems/{{ $problem->id }}/pdf">View</a>
-            <h2 class="grid-100" >Tags</h2>
-            @foreach($problem->tags as $tag)
-                <div class="tag grid-25"> {{ $tag->name }} </div>
-            @endforeach
+            <div class="grid grid-50">
+                <iframe class="grid-100" height="350" src="/problems/{{ $problem->id }}/pdf"></iframe>
+                <a class="grid-100" target="_blank" href="/problems/{{ $problem->id }}/pdf">View</a>
+            </div>
+            <div class="grid-50">
+                <h2 class="grid-100" >Tags</h2>
+                <ul>
+                @foreach($problem->tags as $tag)
+                    <li> {{ $tag->name }} </li>
+                @endforeach
+                </ul>
+            </div>
             <div class="grid-50">
                  <h2>Sample Input</h2>
                 <textarea readonly="true">{{ $problem->sample_input }}</textarea>
