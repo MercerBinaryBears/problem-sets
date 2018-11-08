@@ -83,7 +83,7 @@ return array(
 	 */
 	'permission'=> function()
 	{
-		return Session::get('admin') === true;
+		return Auth::check();
 	},
 
 	/**

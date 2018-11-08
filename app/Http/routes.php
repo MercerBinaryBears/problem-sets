@@ -107,18 +107,10 @@ Route::get('/login', function() {
 });
 
 Route::post('/login', function() {
-    $user = getenv('ADMIN_USER');
-    $password = getenv('ADMIN_PASSWORD');
+    $email = Request::get('email', '');
+    $password = Request::get('password', '');
 
-    if($user === false || $password === false) {
-        return Redirect::to('/login');
-    }
-
-    $user_input = Request::get('username');
-    $password_input = Request::get('password');
-
-    if($user_input == $user && $password_input == $password) {
-        Session::put('admin', true);
+    if(Auth::attempt(['email' => $email, 'password' => $password])) {
         return Redirect::to('/admin');
     }
 
