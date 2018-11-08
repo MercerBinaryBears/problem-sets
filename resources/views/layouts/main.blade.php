@@ -7,6 +7,11 @@
         @show
     </head>
     <body>
+        @if (Auth::check())
+            <a href="/logout">Logout</a>
+            <a href="/admin">Admin</a>
+            <br/>
+        @endif
         @yield('content')
         @section('scripts')
         @show

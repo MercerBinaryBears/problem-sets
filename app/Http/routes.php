@@ -116,3 +116,8 @@ Route::post('/login', function() {
 
     return Redirect::to('/login');
 });
+
+Route::get('/logout', function() {
+    Auth::logout();
+    return Redirect::to('/');
+});
