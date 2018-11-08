@@ -38,10 +38,12 @@
             <div class="grid-50">
                 <h2>Judge Input</h2>
                 <textarea readonly="true">{{ $problem->judge_input }}</textarea>
+                <a href="/problems/{{ $problem->id }}/data/input">Download Input</a>
             </div>
             <div class="grid-50">
                 <h2>Judge Output</h2>
                 <textarea readonly="true">{{ $problem->judge_output }}</textarea>
+                <a href="/problems/{{ $problem->id }}/data/output">Download Output</a>
             </div>
             @foreach($problem->solutions as $solution)
             <div class="grid-100">

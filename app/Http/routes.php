@@ -57,6 +57,24 @@ Route::get('/problems/{problem}', function($problem) {
     return view('problems.show', ['problem' => $problem]);
 });
 
+Route::get('/problems/{problem}/data/{type}', function($problem, $type) {
+    $body = '';
+    $filename = snake_case($problem->name);
+    if($type === 'output') {
+        $body = $problem->judge_output;
+        $filename .= '.out.txt';
+    } else if($type === 'input') {
+        $body = $problem->judge_input;
+        $filename .= '.in.txt';
+    } else {
+        return response('', 404);
+    }
+
+    return response($body, 200)
+        ->header('Content-Type', 'text/plain')
+        ->header('Content-Disposition', "attachment; filename=\"$filename\"");
+});
+
 Route::get('/practice/{problems}/', function($problems) {
     // the url to the pdf
     $pdf_path = '/practice/' . implode(',', $problems->lists('id')->toArray()) . '/pdf';
