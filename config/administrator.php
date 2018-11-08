@@ -106,7 +106,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'home_page' => 'competition_problem_sets',
+	'home_page' => 'untagged_problems',
 
 	/**
 	 * The route to which the user will be taken when they click the "back to site" button
