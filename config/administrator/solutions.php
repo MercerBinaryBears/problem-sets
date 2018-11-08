@@ -20,7 +20,7 @@ return array(
         ),
     ),
 
-    'filter' => array(
+    'filters' => array(
         'problem' => array(
             'title' => 'Problem',
             'type' => 'relationship',
